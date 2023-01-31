@@ -1,0 +1,16 @@
+{
+  "_cts": {
+    "home": {},
+    "header": {},
+    "footer": {},
+    "contact": {}
+  },
+  "slices": {
+    "Hero": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Contact": {}
+  }
+}

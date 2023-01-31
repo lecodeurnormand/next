@@ -1,0 +1,66 @@
+/*----------------------------
+----------------------------
+******* SECTION HEADER   ********
+---------------------------- 
+----------------------------*/
+header{
+background: white;
+    .container-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:20px 10px 0px 10px;
+        .container-logo{
+            .logo{
+
+            }
+        }
+        .nav-menu{
+            
+            ul{
+                display: flex;
+                justify-content: space-between;
+                gap:40px;
+                list-style-type: none;
+                li{
+                    color:green;
+                }
+            }
+        }
+        .btn{
+            .btn-text{
+                color: brown;
+            }
+        }
+    }
+}
+
+
+/*----------------------------
+----------------------------
+******* SECTION HERO    ********
+---------------------------- 
+----------------------------*/
+.section-hero{
+    position: relative;
+    .wrapper{
+
+    }
+    .container-hero{
+        img{
+            width: 100%;
+        }
+        .container-text{
+            position: absolute;
+            bottom:0;
+            padding:15px;
+            h1{ 
+                text-shadow: 1px 2px 1px black;
+
+            }
+            h2{
+                text-shadow: 1px 2px 1px black;
+            }
+        }
+    }
+}
