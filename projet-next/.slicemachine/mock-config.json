@@ -11,6 +11,12 @@
         "primary": {}
       }
     },
-    "Contact": {}
+    "Contact": {},
+    "NosServices": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    }
   }
 }

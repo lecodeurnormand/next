@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import Header from '../components/Header'
+import Layout from '../components/layout'
 import Link from 'next/link'
 import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
@@ -9,9 +9,10 @@ import './/../styles/global.scss'
 export default function App({ Component, pageProps }) {
   return (
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
-         <Header/>
       <PrismicPreview repositoryName={repositoryName}>
+        <Layout>
         <Component {...pageProps} />
+        </Layout>
       </PrismicPreview>
     </PrismicProvider>
   )

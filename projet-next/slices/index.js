@@ -2,13 +2,16 @@
 
 import Contact from './Contact';
 import Hero from './Hero';
+import NosServices from './NosServices';
 
 export {
 	Contact,
 	Hero,
+	NosServices,
 };
 
 export const components = {
 	contact: Contact,
 	hero: Hero,
+	nos_services: NosServices,
 };

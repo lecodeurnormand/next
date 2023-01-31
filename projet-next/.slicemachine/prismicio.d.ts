@@ -88,7 +88,7 @@ interface HomeDocumentData {
  * Slice for *Home → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = HeroSlice;
+type HomeDocumentDataSlicesSlice = HeroSlice | NosServicesSlice;
 /**
  * Home document from Prismic
  *
@@ -208,11 +208,80 @@ type HeroSliceVariation = HeroSliceDefault;
  *
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Item in NosServices → Items
+ *
+ */
+export interface NosServicesSliceDefaultItem {
+    /**
+     * link field in *NosServices → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nos_services.items[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * img field in *NosServices → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nos_services.items[].img
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    img: prismicT.ImageField<never>;
+    /**
+     * title field in *NosServices → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nos_services.items[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * subtitle field in *NosServices → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nos_services.items[].subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    subtitle: prismicT.RichTextField;
+}
+/**
+ * Default variation for NosServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `NosServices`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NosServicesSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<NosServicesSliceDefaultItem>>;
+/**
+ * Slice variation for *NosServices*
+ *
+ */
+type NosServicesSliceVariation = NosServicesSliceDefault;
+/**
+ * NosServices Shared Slice
+ *
+ * - **API ID**: `nos_services`
+ * - **Description**: `NosServices`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NosServicesSlice = prismicT.SharedSlice<"nos_services", NosServicesSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice };
+        export type { ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice };
     }
 }

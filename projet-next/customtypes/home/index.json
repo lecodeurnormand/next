@@ -21,6 +21,9 @@
           "choices": {
             "hero": {
               "type": "SharedSlice"
+            },
+            "nos_services": {
+              "type": "SharedSlice"
             }
           }
         }

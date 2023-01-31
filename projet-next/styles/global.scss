@@ -64,3 +64,81 @@ background: white;
         }
     }
 }
+/*----------------------------
+----------------------------
+******* SECTION HEADER   ********
+---------------------------- 
+----------------------------*/
+.section-services{
+    .wrapper{
+
+    }
+    h2{
+        text-align: center;
+        color: green;
+    }
+    .container-cards{
+        display: flex;
+        justify-content: space-evenly;
+        .card{
+            width: 300px;
+            height:400px;
+            background: white;
+            padding:50px 20px 20px 20px;
+            img{
+                display: block;
+                margin: 20px auto;
+            }
+            h2{
+                
+            }
+            p{
+                color:brown;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+/*----------------------------
+----------------------------
+******* SECTION FOOTER   ********
+---------------------------- 
+----------------------------*/
+
+footer{
+    width: 100vw;
+    justify-content: center;
+    padding:0px 20px 0px 20px;
+    .container-footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    .container-logo{
+        display: flex;
+        max-width: 150px;
+        img{
+
+        }
+    }
+    .container-menu{
+        nav{
+            ul{
+                display: flex;
+                list-style-type: none;
+                gap:30px;
+                li{
+                }
+            }
+        }
+    }
+    .container-social{
+        display: flex;
+        gap:30px;
+        img{
+            
+        }
+    }
+}
+}
