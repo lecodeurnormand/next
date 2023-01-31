@@ -12,27 +12,21 @@ const NosServices = ({ slice }) => (
     <div className='wrapper'>
       <h2>Nos services</h2>
       <div className='container-cards'>
-
-    {slice.items.map((item,i) =>
-        <div className='card' key={item.id} >
-    <img src={item.img.url} alt={item.img.alt} key={i} />
-    <PrismicRichText field={item.title} />
-    <PrismicRichText field={item.subtitle} />
+    
+    {slice?.items?.map((item,i) =>
+       <PrismicLink field={item.link} key={i}>
+        <div className='card'  >
+            
+    <img src={item.img.url} alt={item.img.alt} />
+    <PrismicRichText field={item.title}/>
+    <PrismicRichText field={item.subtitle}  />
         </div>
+        </PrismicLink>
+        
   )
 }
       </div>
     </div>
-    
-    {/* <style jsx>{`
-        section {
-        
-        }
-        .title {
-          color: #8592e0;
-        }
-    `}</style> */}
   </section>
 )
-
 export default NosServices

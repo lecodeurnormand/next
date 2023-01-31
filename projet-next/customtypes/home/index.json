@@ -24,6 +24,9 @@
             },
             "nos_services": {
               "type": "SharedSlice"
+            },
+            "slider": {
+              "type": "SharedSlice"
             }
           }
         }

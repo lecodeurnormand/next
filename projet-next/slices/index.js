@@ -3,15 +3,18 @@
 import Contact from './Contact';
 import Hero from './Hero';
 import NosServices from './NosServices';
+import Slider from './Slider';
 
 export {
 	Contact,
 	Hero,
 	NosServices,
+	Slider,
 };
 
 export const components = {
 	contact: Contact,
 	hero: Hero,
 	nos_services: NosServices,
+	slider: Slider,
 };

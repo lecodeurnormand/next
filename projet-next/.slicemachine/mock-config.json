@@ -17,6 +17,12 @@
         "primary": {},
         "items": {}
       }
+    },
+    "Slider": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
     }
   }
 }

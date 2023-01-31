@@ -20,7 +20,8 @@
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "swiper": "^8.4.7"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.7",

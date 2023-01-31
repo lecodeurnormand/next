@@ -1,3 +1,23 @@
+.section-slider{
+    background: white;
+    width: 100%;
+    .container-img{
+        width: 100%;
+        img{
+            position: relative;
+            display: block;
+            margin: auto;
+            width: 100vw;
+        }
+        h2{
+            font-size: 80px;
+            position: absolute;
+            bottom: 50px;
+            transform: translateX(40%);
+        }
+    }
+}
+
 /*----------------------------
 ----------------------------
 ******* SECTION HEADER   ********
@@ -5,11 +25,24 @@
 ----------------------------*/
 header{
 background: white;
+position: absolute;
+width: 100%;
+top:24px;
+z-index: 10;
+left: 0;
+    &.fixed{
+        position: fixed;
+        top:0;
+    }
+    .wrapper{
+        width: 1208px;
+        margin: auto;
+    }
     .container-header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding:20px 10px 0px 10px;
+        padding:20px 0px 10px 0px;
         .container-logo{
             .logo{
 
@@ -43,6 +76,8 @@ background: white;
 ----------------------------*/
 .section-hero{
     position: relative;
+    padding-top:100px;
+    background: white;
     .wrapper{
 
     }
@@ -66,7 +101,7 @@ background: white;
 }
 /*----------------------------
 ----------------------------
-******* SECTION HEADER   ********
+******* SECTION SERVICES   ********
 ---------------------------- 
 ----------------------------*/
 .section-services{

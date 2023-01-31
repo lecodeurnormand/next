@@ -1,8 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react'
 export default function Header(){
+
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+      window.addEventListener("scroll", () => {
+        setScroll(window.scrollY > 20);
+      });
+    }, []);
     return(
-        <header>
+        <header className={scroll ? "fixed" : null}>
+            <div className='wrapper'>
             <div className="container-header">
                 <div className='container-logo'>
                 <Link href="/">
@@ -28,6 +37,7 @@ export default function Header(){
                     <span className='btn-text'> Contactez-nous</span>
 
                 </Link>
+            </div>
             </div>
         </header>
     )

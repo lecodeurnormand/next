@@ -20,7 +20,6 @@
           [
             "img",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
@@ -38,6 +37,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ],
@@ -49,7 +51,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Pariatur voluptate sunt aliqua do officia excepteur nisi consectetur culpa velit sunt. Commodo enim laborum elit laborum sint consectetur pariatur nulla pariatur. Consectetur duis sint eu minim in."
+                    "text": "Magna ad magna minim ad deserunt laboris adipisicing ullamco sunt aliquip nulla dolore Lorem dolor. Tempor occaecat cupidatat officia do."
                   }
                 }
               ]

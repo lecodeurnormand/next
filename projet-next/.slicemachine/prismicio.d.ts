@@ -88,7 +88,7 @@ interface HomeDocumentData {
  * Slice for *Home → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = HeroSlice | NosServicesSlice;
+type HomeDocumentDataSlicesSlice = HeroSlice | NosServicesSlice | SliderSlice;
 /**
  * Home document from Prismic
  *
@@ -277,11 +277,60 @@ type NosServicesSliceVariation = NosServicesSliceDefault;
  *
  */
 export type NosServicesSlice = prismicT.SharedSlice<"nos_services", NosServicesSliceVariation>;
+/**
+ * Item in Slider → Items
+ *
+ */
+export interface SliderSliceDefaultItem {
+    /**
+     * img field in *Slider → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: slider.items[].img
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    img: prismicT.ImageField<never>;
+    /**
+     * text field in *Slider → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: slider.items[].text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
+}
+/**
+ * Default variation for Slider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Slider`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<SliderSliceDefaultItem>>;
+/**
+ * Slice variation for *Slider*
+ *
+ */
+type SliderSliceVariation = SliderSliceDefault;
+/**
+ * Slider Shared Slice
+ *
+ * - **API ID**: `slider`
+ * - **Description**: `Slider`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderSlice = prismicT.SharedSlice<"slider", SliderSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice };
+        export type { ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
     }
 }

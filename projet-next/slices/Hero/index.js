@@ -1,11 +1,13 @@
 import React from 'react'
 import { PrismicRichText } from '@prismicio/react'
+
 /**
  * @typedef {import("@prismicio/client").Content.HeroSlice} HeroSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<HeroSlice>} HeroProps
  * @param { HeroProps }
  */
 const Hero = ({ slice }) => (
+
   <section className='section-hero'>
     <div className='wrapper'>
       <div className='container-hero'>
@@ -17,6 +19,8 @@ const Hero = ({ slice }) => (
       </div>
     </div>
   </section>
+
 )
 
 export default Hero
+
