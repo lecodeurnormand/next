@@ -3,6 +3,7 @@
 import Contact from './Contact';
 import Hero from './Hero';
 import Image from './Image';
+import Menu from './Menu';
 import NosServices from './NosServices';
 import Slider from './Slider';
 
@@ -10,6 +11,7 @@ export {
 	Contact,
 	Hero,
 	Image,
+	Menu,
 	NosServices,
 	Slider,
 };
@@ -18,6 +20,7 @@ export const components = {
 	contact: Contact,
 	hero: Hero,
 	image: Image,
+	menu: Menu,
 	nos_services: NosServices,
 	slider: Slider,
 };

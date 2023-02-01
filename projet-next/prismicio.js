@@ -14,13 +14,9 @@ const routes = [
     type: 'home',
     path: '/',
   },
-  // {
-  //   type:'amenagement',
-  //   path:'/amenagement'
-  // },
   {
-    type: 'amenagement',
-    path: '/:uid',
+    type:'page',
+    path:'/:uid'
   },
 ]
 

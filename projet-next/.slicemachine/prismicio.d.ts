@@ -6,64 +6,6 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Amenagement documents */
-interface AmenagementDocumentData {
-    /**
-     * Slice Zone field in *Amenagement*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: amenagement.slices[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices: prismicT.SliceZone<AmenagementDocumentDataSlicesSlice>;
-}
-/**
- * Slice for *Amenagement → Slice Zone*
- *
- */
-type AmenagementDocumentDataSlicesSlice = ImageSlice;
-/**
- * Amenagement document from Prismic
- *
- * - **API ID**: `amenagement`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AmenagementDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<AmenagementDocumentData>, "amenagement", Lang>;
-/** Content for Contact documents */
-interface ContactDocumentData {
-    /**
-     * Slice Zone field in *Contact*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: contact.slices[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices: prismicT.SliceZone<ContactDocumentDataSlicesSlice>;
-}
-/**
- * Slice for *Contact → Slice Zone*
- *
- */
-type ContactDocumentDataSlicesSlice = ContactSlice;
-/**
- * Contact document from Prismic
- *
- * - **API ID**: `contact`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ContactDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ContactDocumentData>, "contact", Lang>;
 /** Content for Footer documents */
 type FooterDocumentData = Record<string, never>;
 /**
@@ -77,7 +19,35 @@ type FooterDocumentData = Record<string, never>;
  */
 export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for Header documents */
-type HeaderDocumentData = Record<string, never>;
+interface HeaderDocumentData {
+    /**
+     * Name field in *Header*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Header*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: header.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<HeaderDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Header → Slice Zone*
+ *
+ */
+type HeaderDocumentDataSlicesSlice = MenuSlice;
 /**
  * Header document from Prismic
  *
@@ -87,7 +57,7 @@ type HeaderDocumentData = Record<string, never>;
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HeaderDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HeaderDocumentData>, "header", Lang>;
+export type HeaderDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 /** Content for Home documents */
 interface HomeDocumentData {
     /**
@@ -128,7 +98,91 @@ type HomeDocumentDataSlicesSlice = HeroSlice | NosServicesSlice | SliderSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-export type AllDocumentTypes = AmenagementDocument | ContactDocument | FooterDocument | HeaderDocument | HomeDocument;
+/** Content for Page documents */
+interface PageDocumentData {
+    /**
+     * Slice Zone field in *Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+    /**
+     * meta_title field in *Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.meta_title
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    meta_title: prismicT.RichTextField;
+    /**
+     * social title field in *Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.social_title
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    social_title: prismicT.RichTextField;
+    /**
+     * meta_description field in *Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.meta_description
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    meta_description: prismicT.RichTextField;
+    /**
+     * social description field in *Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.social_description
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    social_description: prismicT.RichTextField;
+    /**
+     * social img field in *Page*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.social_img
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    social_img: prismicT.ImageField<never>;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = HeroSlice | ImageSlice | ContactSlice;
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+export type AllDocumentTypes = FooterDocument | HeaderDocument | HomeDocument | PageDocument;
 /**
  * Primary content in Contact → Primary
  *
@@ -277,6 +331,81 @@ type ImageSliceVariation = ImageSliceDefault;
  */
 export type ImageSlice = prismicT.SharedSlice<"image", ImageSliceVariation>;
 /**
+ * Primary content in Menu → Primary
+ *
+ */
+interface MenuSliceDefaultPrimary {
+    /**
+     * Name field in *Menu → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.primary.name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.RichTextField;
+    /**
+     * Link field in *Menu → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Item in Menu → Items
+ *
+ */
+export interface MenuSliceDefaultItem {
+    /**
+     * Child Name field in *Menu → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.items[].child_name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    child_name: prismicT.RichTextField;
+    /**
+     * Child Link field in *Menu → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu.items[].child_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    child_link: prismicT.LinkField;
+}
+/**
+ * Default variation for Menu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Menu`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenuSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<MenuSliceDefaultPrimary>, Simplify<MenuSliceDefaultItem>>;
+/**
+ * Slice variation for *Menu*
+ *
+ */
+type MenuSliceVariation = MenuSliceDefault;
+/**
+ * Menu Shared Slice
+ *
+ * - **API ID**: `menu`
+ * - **Description**: `Menu`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenuSlice = prismicT.SharedSlice<"menu", MenuSliceVariation>;
+/**
  * Item in NosServices → Items
  *
  */
@@ -399,6 +528,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AmenagementDocumentData, AmenagementDocumentDataSlicesSlice, AmenagementDocument, ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
+        export type { FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, MenuSliceDefaultPrimary, MenuSliceDefaultItem, MenuSliceDefault, MenuSliceVariation, MenuSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
     }
 }
