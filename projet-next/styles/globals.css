@@ -8,7 +8,9 @@ body {
     background: white;
     overflow-x: hidden;
 }
-
+section{
+  background: white;
+}
 a {
   color: inherit;
   text-decoration: none;

@@ -6,6 +6,35 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Amenagement documents */
+interface AmenagementDocumentData {
+    /**
+     * Slice Zone field in *Amenagement*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: amenagement.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<AmenagementDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Amenagement → Slice Zone*
+ *
+ */
+type AmenagementDocumentDataSlicesSlice = ImageSlice;
+/**
+ * Amenagement document from Prismic
+ *
+ * - **API ID**: `amenagement`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AmenagementDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<AmenagementDocumentData>, "amenagement", Lang>;
 /** Content for Contact documents */
 interface ContactDocumentData {
     /**
@@ -99,7 +128,7 @@ type HomeDocumentDataSlicesSlice = HeroSlice | NosServicesSlice | SliderSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-export type AllDocumentTypes = ContactDocument | FooterDocument | HeaderDocument | HomeDocument;
+export type AllDocumentTypes = AmenagementDocument | ContactDocument | FooterDocument | HeaderDocument | HomeDocument;
 /**
  * Primary content in Contact → Primary
  *
@@ -208,6 +237,45 @@ type HeroSliceVariation = HeroSliceDefault;
  *
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Primary content in Image → Primary
+ *
+ */
+interface ImageSliceDefaultPrimary {
+    /**
+     * img field in *Image → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: image.primary.img
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    img: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for Image Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Image`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ImageSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Image*
+ *
+ */
+type ImageSliceVariation = ImageSliceDefault;
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: `Image`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSlice = prismicT.SharedSlice<"image", ImageSliceVariation>;
 /**
  * Item in NosServices → Items
  *
@@ -331,6 +399,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
+        export type { AmenagementDocumentData, AmenagementDocumentDataSlicesSlice, AmenagementDocument, ContactDocumentData, ContactDocumentDataSlicesSlice, ContactDocument, FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
     }
 }

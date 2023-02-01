@@ -13,7 +13,7 @@ const NosServices = ({ slice }) => (
       <h2>Nos services</h2>
       <div className='container-cards'>
     
-    {slice?.items?.map((item,i) =>
+    {slice.items.map((item,i) =>
        <PrismicLink field={item.link} key={i}>
         <div className='card'  >
             

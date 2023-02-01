@@ -3,7 +3,8 @@
     "home": {},
     "header": {},
     "footer": {},
-    "contact": {}
+    "contact": {},
+    "amenagement": {}
   },
   "slices": {
     "Hero": {
@@ -22,6 +23,11 @@
       "default": {
         "primary": {},
         "items": {}
+      }
+    },
+    "Image": {
+      "default": {
+        "primary": {}
       }
     }
   }

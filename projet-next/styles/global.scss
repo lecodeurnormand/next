@@ -18,6 +18,18 @@
     }
 }
 
+.section-img{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        display: block;
+        width: 50%;
+        margin: auto;
+    }
+}
+
 /*----------------------------
 ----------------------------
 ******* SECTION HEADER   ********

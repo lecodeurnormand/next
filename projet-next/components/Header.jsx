@@ -27,10 +27,10 @@ export default function Header(){
                 </div>
                 <nav className='nav-menu'>
                     <ul>
-                    <Link href="/"><li>Aménagement</li></Link>
+                    <Link href="/amenagement"><li>Aménagement</li></Link>
                     <Link href="/"><li>Entretien</li></Link>
                     <Link href="/"><li>Terrassement</li></Link>
-                    <Link href="/"><li>Aménagement</li></Link>
+                    <Link href="/amenagement"><li>Aménagement</li></Link>
                     </ul>
                 </nav>
                 <Link href="/contact" className='btn'>

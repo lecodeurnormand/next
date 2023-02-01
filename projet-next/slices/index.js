@@ -2,12 +2,14 @@
 
 import Contact from './Contact';
 import Hero from './Hero';
+import Image from './Image';
 import NosServices from './NosServices';
 import Slider from './Slider';
 
 export {
 	Contact,
 	Hero,
+	Image,
 	NosServices,
 	Slider,
 };
@@ -15,6 +17,7 @@ export {
 export const components = {
 	contact: Contact,
 	hero: Hero,
+	image: Image,
 	nos_services: NosServices,
 	slider: Slider,
 };
