@@ -1,9 +1,25 @@
 import { SliceZone } from '@prismicio/react'
 import { createClient } from '../prismicio'
 import { components } from '../slices'
-
+import {getTodos} from '../components/Test'
+import React,{useEffect, useState} from 'react'
+import Test from '../components/Test'
 const Page = ({ page, navigation, settings }) => {
-  return <SliceZone slices={page.data.slices} components={components} />
+// const [todos,setTodos] = useState([])
+// useEffect(()=>{
+//   async function getTodosLoad(){
+//     const todos = await getTodos();
+//     setTodos(todos);
+//   }
+//   getTodosLoad();
+// })
+
+  return (
+    <>
+    <Test/>
+    <SliceZone slices={page.data.slices} components={components} />
+    </>
+  )
 }
 
 export default Page
