@@ -25,6 +25,12 @@
             },
             "contact": {
               "type": "SharedSlice"
+            },
+            "call_api": {
+              "type": "SharedSlice"
+            },
+            "calculatrice": {
+              "type": "SharedSlice"
             }
           }
         }

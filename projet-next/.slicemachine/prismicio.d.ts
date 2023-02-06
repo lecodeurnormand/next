@@ -171,7 +171,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | ImageSlice | ContactSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | ImageSlice | ContactSlice | CallApiSlice | CalculatriceSlice;
 /**
  * Page document from Prismic
  *
@@ -183,6 +183,104 @@ type PageDocumentDataSlicesSlice = HeroSlice | ImageSlice | ContactSlice;
  */
 export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 export type AllDocumentTypes = FooterDocument | HeaderDocument | HomeDocument | PageDocument;
+/**
+ * Primary content in Calculatrice → Primary
+ *
+ */
+interface CalculatriceSliceDefaultPrimary {
+    /**
+     * Title field in *Calculatrice → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: calculatrice.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Calculatrice → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: calculatrice.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for Calculatrice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Calculatrice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CalculatriceSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<CalculatriceSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Calculatrice*
+ *
+ */
+type CalculatriceSliceVariation = CalculatriceSliceDefault;
+/**
+ * Calculatrice Shared Slice
+ *
+ * - **API ID**: `calculatrice`
+ * - **Description**: `Calculatrice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CalculatriceSlice = prismicT.SharedSlice<"calculatrice", CalculatriceSliceVariation>;
+/**
+ * Primary content in CallApi → Primary
+ *
+ */
+interface CallApiSliceDefaultPrimary {
+    /**
+     * Title field in *CallApi → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: call_api.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *CallApi → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: call_api.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for CallApi Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `CallApi`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CallApiSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<CallApiSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *CallApi*
+ *
+ */
+type CallApiSliceVariation = CallApiSliceDefault;
+/**
+ * CallApi Shared Slice
+ *
+ * - **API ID**: `call_api`
+ * - **Description**: `CallApi`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CallApiSlice = prismicT.SharedSlice<"call_api", CallApiSliceVariation>;
 /**
  * Primary content in Contact → Primary
  *
@@ -528,6 +626,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, AllDocumentTypes, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, MenuSliceDefaultPrimary, MenuSliceDefaultItem, MenuSliceDefault, MenuSliceVariation, MenuSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
+        export type { FooterDocumentData, FooterDocument, HeaderDocumentData, HeaderDocumentDataSlicesSlice, HeaderDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, AllDocumentTypes, CalculatriceSliceDefaultPrimary, CalculatriceSliceDefault, CalculatriceSliceVariation, CalculatriceSlice, CallApiSliceDefaultPrimary, CallApiSliceDefault, CallApiSliceVariation, CallApiSlice, ContactSliceDefaultPrimary, ContactSliceDefault, ContactSliceVariation, ContactSlice, HeroSliceDefaultPrimary, HeroSliceDefault, HeroSliceVariation, HeroSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, MenuSliceDefaultPrimary, MenuSliceDefaultItem, MenuSliceDefault, MenuSliceVariation, MenuSlice, NosServicesSliceDefaultItem, NosServicesSliceDefault, NosServicesSliceVariation, NosServicesSlice, SliderSliceDefaultItem, SliderSliceDefault, SliderSliceVariation, SliderSlice };
     }
 }

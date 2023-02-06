@@ -19,7 +19,7 @@ export default function Header(){
                     priority
                     src="/images/logo.png"
                     className='logo'
-                    height={60}
+                    height={80}
                     width={150}
                     alt="logo"
                     />
@@ -27,8 +27,8 @@ export default function Header(){
                 </div>
                 <nav className='nav-menu'>
                     <ul>
-                    <Link href="/amenagement"><li>Aménagement</li></Link>
-                    <Link href="/"><li>Entretien</li></Link>
+                    <Link href="/calculatrice"><li>Calculatrice</li></Link>
+                    <Link href="/callapi"><li>Call API</li></Link>
                     <Link href="/"><li>Terrassement</li></Link>
                     <Link href="/amenagement"><li>Aménagement</li></Link>
                     </ul>

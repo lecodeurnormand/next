@@ -5,15 +5,20 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: white;
+    background: black;
+    color:black;
+    padding-top:20px;
     overflow-x: hidden;
 }
-section{
+* section{
   background: white;
 }
 a {
   color: inherit;
   text-decoration: none;
+}
+h1,h2,h3{
+  color:white;
 }
 
 * {
@@ -24,8 +29,8 @@ a {
   html {
     color-scheme: dark;
   }
-  body {
-    color: white;
-    background: black;
-  }
+  /* body {
+    color: darkgray;
+    background:white;
+  } */
 }

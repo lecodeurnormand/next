@@ -5,6 +5,7 @@ import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '../prismicio'
 import './/../styles/global.scss'
+import './/../styles/calculatrice.scss'
 
 export default function App({ Component, pageProps }) {
 
