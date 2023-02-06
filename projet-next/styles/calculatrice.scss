@@ -47,6 +47,7 @@
                 }
                 &:hover{
                     cursor: pointer;
+                    box-shadow: -1px 1px 0px black;
                 }
                 &.equal{
                     flex-shrink: 1;
