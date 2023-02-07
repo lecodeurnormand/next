@@ -19,6 +19,7 @@ import 'swiper/css/effect-fade';
  */
 const Slider = ({ slice }) => (
   <section className='section-slider'>
+    <div className='wrapper'>
     <div className='container-img'>
    <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay]}
@@ -43,6 +44,7 @@ const Slider = ({ slice }) => (
  </SwiperSlide>
    )}
 </Swiper>
+</div>
 </div>
 </section>
 )

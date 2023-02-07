@@ -1,5 +1,13 @@
 .section-calculatrice{
-    padding: 200px;
+    background: white;
+    width: 100%;
+    margin: auto;
+    padding:200px;
+    .wrapper{
+        width: 75%;
+        margin: auto;
+        margin-left: 25%;
+    }
     .container-calc{
         display: flex;
         .calc{

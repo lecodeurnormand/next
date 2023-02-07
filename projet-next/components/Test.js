@@ -17,6 +17,7 @@ function Test(){
   }, [])
     return(
         <section className='section-test'>
+          <div className='wrapper'>
                 <button onClick={() => testfunc()}>Fetch random</button>
         <div className="container-cards">
             {isDataLoading ?<p>test</p>:
@@ -38,6 +39,7 @@ function Test(){
     </div>
 ))
   }
+        </div>
         </div>
         </section>
     )

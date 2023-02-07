@@ -3,11 +3,14 @@ import { useState } from "react"
 export default function (){
 
     
-    const [value,setValue] = useState('0')
+    const [value,setValue] = useState([])
 
     function handleClick(e){
-        setValue(e.target.innerHTML)
-        console.log(value)
+       setValue(e.target.innerHTML)
+        let tableau1 =   [value]
+        let tableau2 = ["2"]
+        // let tableau3 = tableau1.concat(tableau2)
+        console.log(tableau1)
     }
 
     function handleDelete(){
@@ -15,6 +18,7 @@ export default function (){
     }
     return(
         <section className="section-calculatrice">
+            <div className="wrapper">
             <div className="container-calc">
                 <div className="calc">
                     <input onChange={handleClick} value={value}  name="result" className="result" placeholder="0"/>
@@ -35,7 +39,7 @@ export default function (){
                     <span className="equal">=</span>
                 </div>
             </div>
-        
+            </div>
         </section>
     )
 }
